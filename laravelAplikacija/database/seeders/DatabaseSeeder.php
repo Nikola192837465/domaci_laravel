@@ -2,16 +2,43 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Lekar;
+use App\Models\Pacijent;
+use App\Models\Pregled;
 use Illuminate\Database\Seeder;
 
-class LekarSeeder extends Seeder
+class DatabaseSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Seed the application's database.
      */
     public function run(): void
     {
-        //
+        // \App\Models\User::factory(10)->create();
+
+        // \App\Models\User::factory()->create([
+        //     'name' => 'Test User',
+        //     'email' => 'test@example.com',
+        // ]);
+
+        //seedujemo podatke u bazu
+
+        Pacijent::truncate();
+        Lekar::truncate();
+        Pregled::truncate();
+
+        Pacijent::factory()
+            ->count(20)
+            ->create();
+
+        Lekar::factory()
+            ->count(20)
+            ->create();
+
+        Pregled::factory()
+            ->count(20)
+            ->create();
+
     }
 }
